@@ -15,9 +15,7 @@ const requestHandler = (request: any) => {
     dispatch({ type: ActionType.SET_IS_LOADING, data: { isLoading: true } })
     return request
 }
-service.interceptors.request.use(
-    (request: any) => requestHandler(request)
-)
+service.interceptors.request.use(requestHandler)
 
 const errorHandler = (error: AxiosError): unknown => {
     const { dispatch } = useHooks()
